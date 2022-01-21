@@ -1,0 +1,57 @@
+<div class="row">
+
+  <mat-card-subtitle class="col-md-12">{{section.title}}</mat-card-subtitle>
+
+  <div [ngClass]="{'col-md-4': field.type != 3 , 'col-md-12' : (field.type == 3 || section.class == 'col-md-12') }"
+    *ngFor="let field of section.fields | visibleField">
+    <app-base-input [field]="field" [control]="form.get(field.key)"
+      (change)="change({field: field, title: section.title})">
+    </app-base-input>
+  </div>
+
+  <div *ngFor="let sect of section?.sections" [class]="sect?.class">
+    <div *ngIf="sect.type == 'Telefones'">
+      <app-telefones-section [form]="form.get(sect.key)"></app-telefones-section>
+    </div>
+
+    <div *ngIf="sect.type == 'Table'">
+      <mat-card-subtitle class="col-md-12">
+        <div class="col-md-2 justify-content-start">
+          <button type="button" mat-raised-button class="btn-class btn-enviar w-100" (click)="additem(sect)"
+            [disabled]="form.get([sect.key]).disabled">
+            Adicionar {{sect.title}}
+          </button>
+        </div>
+      </mat-card-subtitle>
+
+      <table mat-table *ngIf="form.get([sect.key])?.value.length > 0" [dataSource]="form.get([sect.key]).value"
+        class="w-100 mt-3 mb-3">
+        <ng-container *ngFor="let column of sect.columns" matColumnDef="{{column.code}}">
+          <th mat-header-cell *matHeaderCellDef>{{column.description}}</th>
+          <td mat-cell *matCellDef="let row">{{row[column.code] | table: getField(sect, column.code) | async}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions" *ngIf="!form.disabled">
+          <th mat-header-cell *matHeaderCellDef>Ações</th>
+          <td mat-cell *matCellDef="let row; let i = index">
+            <span (click)="edititem(sect, form.get([sect.key, i]))" matTooltip="Editar" [matTooltipPosition]="'above'"
+              class="edit">
+              <i class="material-icons">
+                edit
+              </i>
+            </span>
+            <span (click)="removeitem(form.get([sect.key]), i)" matTooltip="Remover" [matTooltipPosition]="'above'"
+              class="delete">
+              <i class="material-icons">
+                delete
+              </i>
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns(sect)"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns(sect);"></tr>
+      </table>
+    </div>
+  </div>
+</div>

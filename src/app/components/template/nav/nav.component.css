@@ -1,0 +1,38 @@
+.sidenav {
+    background-color: #f5f5f5;
+    width: 280px;
+}
+
+.sidenav a {
+    color: #7952b3;
+}
+
+.sidenav a.active {
+    background-color: #7952b3;
+    color: #fff;
+}
+
+.sidenav i {
+    padding-right: 10px;
+}
+
+.content {
+    padding: 16px;
+}
+
+.user-info {
+    position: fixed;
+    bottom: 0px;
+    margin-right: auto;
+    margin-left: 10px;
+    color: #7952b3;
+    padding-right: 10px;
+}
+
+.user-info strong {
+    font-size: 1.1rem;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

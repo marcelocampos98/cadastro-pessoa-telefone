@@ -1,0 +1,173 @@
+<mat-form-field appearance="outline" *ngIf="isFieldShowDependenciesFullfilled()">
+  <mat-label>{{field.label}}</mat-label>
+    
+    
+    <input
+      *ngIf="!field.type"
+      matInput 
+      [formControl]="control"
+      placeholder="{{field.placeholder}}"
+      required="{{field?.required || false}}"
+      (change)="changeEmit()"
+    >
+
+    <input
+      *ngIf="field.type == fieldType.CPF "
+      matInput 
+      [formControl]="control"
+      placeholder="{{field.placeholder}}"
+      required="{{field?.required  || false}}"
+      mask="000.000.000-00"
+      (change)="changeEmit()"
+    >
+    
+    <input
+      *ngIf="field.type == fieldType.CNPJ"
+      matInput 
+      [formControl]="control"
+      placeholder="{{field.placeholder}}"
+      required="{{field?.required || false}}"
+      mask="00.000.000/0000-00"
+      (change)="changeEmit()"
+    >    
+
+    <input
+      *ngIf="field.type == fieldType.CEP"
+      matInput 
+      [formControl]="control"
+      placeholder="{{field.placeholder}}"
+      required="{{field?.required || false}}"
+      mask="00000-000"
+      (change)="changeEmit()"
+    >    
+
+    <input
+      *ngIf="field.type == fieldType.PHONE"
+      matInput 
+      [formControl]="control"
+      placeholder="{{field.placeholder}}"
+      required="{{field?.required  || false}}"
+      mask="(00) 0000-0000||(00) 0 0000-0000"
+      (change)="changeEmit()"
+    >
+
+    <input  
+      matInput 
+      type="datetime-local"
+      *ngIf="field.type == fieldType.DATA"
+      [formControl]="controlData" 
+      required="{{field?.required || false}}"
+      (change)="changeEmit()"
+      (blur)="bluerEmit()"
+    >
+    <input  
+      matInput 
+      type="datetime-local"
+      *ngIf="field.type == fieldType.DATA_HORA"
+      required="{{field?.required || false}}"
+      [formControl]="controlData" 
+      (change)="changeEmit()"
+      (blur)="bluerEmit()"
+    >
+    
+    <mat-select         
+      *ngIf="field.type == fieldType.MULTISELECT && filterCtrl && controlSelect"
+      [formControl]="controlSelect"
+      placeholder="{{field.label}}"
+      required="{{field?.required || false}}"
+      multiple
+      (change)="changeEmit()"
+      (blur)="bluerEmit()"
+    >
+      <mat-option>
+        <ngx-mat-select-search
+          [formControl]="filterCtrl"
+          placeholderLabel="Pesquisar..." 
+          noEntriesFoundLabel="'Nenhum item encontrado'"
+        ></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let item of filteredItems | async" [value]="getItemValue(item)">
+        {{getItemLabel(item)}}
+      </mat-option>
+    </mat-select>
+
+    <mat-select         
+      *ngIf="field.type == fieldType.SELECT && filterCtrl && controlSelect"
+      [formControl]="controlSelect"
+      placeholder="{{field.label}}"
+      required="{{field?.required || false}}"
+      (change)="changeEmit()"
+      (blur)="bluerEmit()"
+    >
+      <mat-option>
+        <ngx-mat-select-search
+          [formControl]="filterCtrl"
+          placeholderLabel="Pesquisar..." 
+          noEntriesFoundLabel="'Nenhum item encontrado'"
+        ></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let item of filteredItems | async" [value]="getItemValue(item)">
+        {{getItemLabel(item)}}
+      </mat-option>
+    </mat-select>
+
+    <mat-select         
+      *ngIf="field.type == fieldType.AUTOCOMPLETE && filterCtrl && controlSelect"
+      [formControl]="controlSelect"
+      placeholder="{{field.label}}"
+      required="{{field?.required || false}}"
+      multiple
+      (change)="changeEmit()"
+      (blur)="bluerEmit()"
+    >
+      <mat-option>
+        <ngx-mat-select-search
+          [formControl]="filterCtrl"
+          placeholderLabel="Pesquisar..." 
+          noEntriesFoundLabel="'Nenhum item encontrado'"
+        ></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let item of filteredItems | async" [value]="getItemValue(item)">
+        {{getItemLabel(item)}}
+      </mat-option>
+    </mat-select>
+
+    <mat-select         
+      *ngIf="field.type == fieldType.BOOLEAN && filterCtrl"
+      [formControl]="control"
+      placeholder="{{field.label}}"
+      (change)="changeEmit()"
+      (blur)="bluerEmit()"
+    >
+      <mat-option>
+        <ngx-mat-select-search
+          [formControl]="filterCtrl"
+          placeholderLabel="Pesquisar..." 
+          noEntriesFoundLabel="'Nenhum item encontrado'"
+        ></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let item of filteredItems | async" [value]="item.value">
+        {{getItemLabel(item)}}
+      </mat-option>
+    </mat-select>
+
+
+    <textarea
+      *ngIf="field.type == fieldType.TEXT_AREA"
+      required="{{field?.required || false}}"
+      matInput
+      [formControl]="control"
+      rows="5"
+      (change)="changeEmit()"
+    >
+    </textarea>
+
+    <!-- <div class="col-md-6">
+      <label>Banner</label>
+      <div class="custom-file">
+          <input type="file" class="custom-file-input" id="customFile" (change)="onChange($event)">
+          <label class="custom-file-label" for="customFile" id="customFileLabel"></label>
+      </div>
+    </div> -->
+    <mat-error>{{errorMessage}}</mat-error>
+</mat-form-field>

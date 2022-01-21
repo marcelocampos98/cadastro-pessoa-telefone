@@ -1,0 +1,11 @@
+<app-base-create
+    *ngIf="data"
+    [title]="title"
+    [formField]="formField"
+    [routerCancel]="routerCancel"
+    [data]="data"
+    [isEdit]="true"
+    (saveData)="saveData($event)"
+    (beforeSave)="beforeSave($event)"
+>
+</app-base-create>

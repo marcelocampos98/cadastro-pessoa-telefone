@@ -1,1 +1,359 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #f5f5f5;
+}
+
+.mat-drawer-container {
+    background-color: #f5f5f5;
+}
+
+.red {
+    color: #e35e6b;
+}
+
+.v-middle {
+    vertical-align: middle;
+}
+
+/* Removendo paginação de itens por page.*/
+.mat-paginator-range-label {
+    display: block;
+}
+
+.font-filter {
+    margin: 5px;
+    font-size: 1rem;
+    font-weight: 200;
+    margin: 10px;
+}
+
+#filtro {
+    display: block;
+}
+
+.filter {
+    margin: 5px;
+    width: 99%;
+    height: 100%;
+}
+
+.div-bt {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
+.btn-filtro {
+    background-color: #7952b3;
+    margin: 5px 15px 15px 5px !important;
+    color: white;
+}
+
+.mat-search {
+    width: 98%;
+    padding: 5px;
+}
+
+.btn-enviar {
+    background-color: #7952b3;
+    color: white;
+}
+
+.btn-cancelar {
+    margin-left: 20px;
+}
+.btn-neutro {
+    background-color: rgb(56, 54, 173);
+    color: white;
+}
+/*Checkbox*/
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #7952b3 !important;
+}
+/*Elemento de click*/
+.mat-ripple-element {
+    background: rgba(199, 201, 199, 0.4) !important;
+}
+/*Color of input label as focus*/
+.mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: rgb(143, 139, 144) !important;
+}
+
+.mat-form-field-underline {
+    /*change color of underline as input*/
+    background-color: rgba(199, 201, 199, 0.4) !important;
+}
+
+.mat-form-field-ripple {
+    /*change color of underline input when focused*/
+    background-color: rgb(143, 139, 144) !important;
+}
+
+/*mat-button-toggle*/
+.mat-button-toggle:hover {
+    background-color: rgba(39, 91, 148, 0.9) !important;
+    color: white;
+}
+
+.mat-button-toggle-checked {
+    background-color: rgba(39, 91, 148, 0.9) !important;
+    color: white;
+}
+
+.mat-button-toggle-checked .mat-button-toggle-label-content {
+    background-color: rgba(39, 91, 148, 0.9) !important;
+    color: white;
+}
+
+.mat-button-toggle {
+    height: 30px;
+}
+
+.mat-button-toggle-input {
+    background-color: none !important;
+}
+
+.mat-button-toggle-group {
+    box-shadow: none;
+}
+
+.mat-toolbar {
+    color: #7952b3;
+}
+
+/*readonly wrapper to mat-select*/
+.readonly-wrapper {
+    cursor: not-allowed;
+}
+
+.readonly-wrapper .readonly-block {
+    pointer-events: none;
+}
+
+/* Structure Tabelas */
+.table-container {
+    position: relative;
+}
+
+.table-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*.mat-column-action {
+  text-align: right;
+  justify-content: flex-end;
+}*/
+
+.table-width {
+    width: 100%;
+}
+
+.edit,
+.visibility {
+    margin-right: 10px;
+}
+
+.edit i {
+    color: #d9cd26;
+    cursor: pointer;
+}
+.delete i {
+    color: #e35e6b;
+    cursor: pointer;
+}
+
+.visibility i {
+    color: #7952b3;
+    cursor: pointer;
+}
+
+.checkbox-h2 {
+    margin: 10px;
+}
+
+.checkbox-margin {
+    margin: 5px;
+}
+
+.class_check {
+    display: inline; /* or inline-block, at least its a block element */
+    height: auto; /* height cannot be defined */
+}
+
+.div-inline {
+    display: inline; /* or inline-block, at least its a block element */
+    height: auto; /* height cannot be defined */
+    width: 100%;
+}
+
+.edit_divide {
+    width: 50%;
+}
+
+.edit_complete9 {
+    width: 90%;
+}
+
+.edit_complete8 {
+    width: 80%;
+}
+.edit_complete85 {
+    width: 85%;
+}
+
+.ng-select .ng-select-container.ng-appearance-outline {
+    padding: 0 0.75em 0 0.75em;
+    margin-top: -0.25rem;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    margin-top: 5px;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-input > input {
+    padding: 0.75em 0.75em 0.75em 0.75em !important;
+}
+
+.ng-select .ng-select-container.ng-appearance-outline .ng-value {
+    padding-top: 0.75em;
+}
+
+.ng-select .ng-select-container.ng-appearance-outline .ng-value {
+    padding-left: inherit;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    padding: 0 3px !important;
+}
+
+.mat-form-field-disabled,
+input:disabled,
+.mat-select-disabled .mat-select-trigger {
+    cursor: not-allowed;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+    background-color: #7952b3;
+}
+
+agm-map {
+    height: 350px;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.pac-item {
+    font-size: inherit;
+    line-height: 3em;
+    height: 3em;
+}
+
+.pac-icon {
+    margin-top: 10px;
+}
+
+.pac-icon-marker {
+    background-position: -18px -161px;
+}
+
+.pac-logo:after {
+    display: none;
+}
+
+.cdk-column-action .mat-sort-header-container,
+.cdk-column-image .mat-sort-header-container {
+    justify-content: center !important;
+}
+
+.cdk-column-action,
+.cdk-column-image {
+    text-align: center !important;
+    padding: 0px !important;
+    width: 150px !important;
+}
+
+.cdk-column-requiredScore {
+    text-align: center !important;
+    padding: 0px !important;
+    width: 50% !important;
+}
+
+td.cdk-column-action {
+    border-left: 1px solid #e0e0e0;
+}
+
+app-generos .mat-form-field-wrapper,
+app-gamificacao-list .mat-form-field-wrapper {
+    padding-bottom: 0px;
+}
+
+.search-input .mat-form-field-wrapper {
+    padding-bottom: 0px !important;
+}
+
+.search-input {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-list-base .mat-list-item {
+    color: #7952b3;
+}
+
+.mat-list-item-content {
+    width: 100%;
+}
+
+.mat-drawer-inner-container {
+    overflow: hidden !important;
+    padding-top: 64px;
+}
+
+.mat-nav-list {
+    border-top: 1px solid #e0e0e0;
+}
+
+.mat-nav-list .active.mat-list-item:hover {
+    background-color: #7952b3;
+    color: #fff;
+}
+
+.ant-modal-close-icon {
+    margin-right: 5px;
+}
+
+.ant-modal-close-x {
+    line-height: 20px;
+    text-align: end;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: #7952b3;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: rgb(121, 82, 179, 0.5);
+}

@@ -1,0 +1,26 @@
+<mat-dialog-content class="mat-typography">
+    <app-base-simple-section
+        [form]="localForm"
+        [section]="section"
+    ></app-base-simple-section>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button 
+        mat-button
+        mat-dialog-close
+        class="btn-danger btn-class"
+    >
+        Cancelar
+    </button>
+    <button 
+        mat-raised-button
+        [mat-dialog-close]="true"
+        color="primary"
+        class="btn-class"
+        cdkFocusInitial 
+        [disabled]="formAdd.invalid"
+        (click)="save()"
+    >
+        Adicionar
+    </button>
+</mat-dialog-actions>

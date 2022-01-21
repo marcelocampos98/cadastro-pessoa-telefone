@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-title class="pb-4 pt-4">{{title}}</mat-card-title>
+    <form>
+        <app-base-simple-section 
+            [form]="form"
+            [section]="formField"
+            (files)= "setFiles($event)"
+            (file)="setFile($event)"
+        >
+        </app-base-simple-section>
+    </form>
+</mat-card>
+<div class="row justify-content-end pt-4" *ngIf="!isDelete && !isRead">
+    <div class="col-md-2 d-grid" *ngIf="routerCancel">
+        <button mat-raised-button class="btn-danger btn-class" (click)="cancel()">
+            Cancelar
+        </button>
+    </div>
+
+    <div class="col-md-2 d-grid">
+        <button mat-raised-button class="btn-enviar btn-class" (click)="save()">
+            Salvar
+        </button>
+    </div>
+</div>
+
+<div class="row justify-content-end pt-4" *ngIf="isDelete">
+    <div class="col-md-2 d-grid">
+        <button mat-raised-button class="btn-class" (click)="cancel()">
+            Cancelar
+        </button>
+    </div>
+
+    <div class="col-md-2 d-grid">
+        <button mat-raised-button class="btn-danger btn-class" (click)="remove()">
+            Remover
+        </button>
+    </div>
+</div>
+
+<div class="row justify-content-end pt-4" *ngIf="isRead">
+    <div class="col-md-2 d-grid">
+        <button mat-raised-button class="btn-enviar btn-class" (click)="cancel()">
+            Voltar
+        </button>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+.mat-list-item {
+    display: flex;
+    width: auto;
+
+    .routeIcon {
+        margin-right: 25px;
+    }
+}
+
+.mat-list-base .mat-list-item .mat-list-item-content {
+    width: 100%;
+}
+
+.mat-list-base .mat-list-item {
+    color: #7952b3;
+}
+
+.active {
+    background-color: #7952b3;
+    color: #fff;
+}
+
+i {
+    padding-right: 10px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
